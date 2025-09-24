@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.sql.SQLOutput;
 
 public class ApiClient {    //Importante da imparare per la verifica
     private final HttpClient client = HttpClient.newHttpClient();
