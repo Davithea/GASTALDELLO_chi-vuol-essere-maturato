@@ -1,7 +1,10 @@
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.SQLOutput;
 
 public class ApiClient {    //Importante da imparare per la verifica
     private final HttpClient client = HttpClient.newHttpClient();
@@ -23,6 +26,12 @@ public class ApiClient {    //Importante da imparare per la verifica
             return "Errore nella richiesta API";
         }
 
+        Gson gson = new Gson();
+        ApiResponse apiResponse = gson.fromJson(response.body(), ApiResponse.class);
+        for (ApiQuestion question : apiResponse.results) {
+            System.out.print(question.question);
+            System.out.println(question.correct_answer);
+        }
         return response.body();
     }
 }
