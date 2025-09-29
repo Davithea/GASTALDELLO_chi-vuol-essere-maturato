@@ -29,7 +29,7 @@ public class ApiClient {    //Importante da imparare per la verifica
         ApiResponse apiResponse = gson.fromJson(response.body(), ApiResponse.class);
         for (ApiQuestion question : apiResponse.results) {
             System.out.print(question.question);
-            System.out.println(question.correct_answer);
+            System.out.println("Risposta corretta: " + question.correct_answer);
         }
         return response.body();
     }
